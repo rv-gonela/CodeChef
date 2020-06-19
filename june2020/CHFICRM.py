@@ -1,0 +1,32 @@
+for i0 in range(int(input())):
+    n=int(input())
+    cust=[int(x) for x in input().split()]
+    c5=0
+    c10=0
+    i=0
+    flag=True
+    while(i<len(cust)):
+        if(cust[i]==5):
+            c5+=1
+        elif(cust[i]==10):
+            c10+=1
+            c5-=1
+            if(c5<0):
+                flag=False
+                break
+        else:
+            if(c10==0):
+                c5-=2
+                if(c5<0):
+                    flag=False
+                    break
+            else:
+                c10-=1
+                if(c10<0):
+                    flag=False
+                    break
+        i+=1
+    if(flag):
+        print("YES")
+    else:
+        print("NO")
